@@ -78,81 +78,88 @@ int main()
                 cout << ("second number\t");
                 cin >> (y);
             }
-            switch (d)
+            bool j = (x >= -2147483648 && x <= 2147483647 && y >= -2147483648 && y <= 2147483647);
+            if (j == 1)
             {
-                case '+':
+                switch (d)
                 {
-                    cout << x << "+" << y << "=" << add(x, y);
-                    break;
-                }
-                case '-':
-                {
-                    cout << x << "-" << y << "=" << sub(x, y);
-                    break;
-                }
-                case '*':
-                {
-                    cout << x << "*" << y << "=" << mul(x, y);
-                    break;
-                }
-                case '/':
-                {
-                    if (y == 0)
-                        cerr << "err: you can't divide by zero";
-                    else
-                        cout << x << "/" << y << "=" << div1(x, y);
-                    break;
-                }
-                case '&':
-                {
-                    cout << x << "&" << y << "=" << and1(x, y);
-                    break;
-                }
-                case '^':
-                {
-                    cout << x << "^" << y << "=" << pow1(x, y);
-                    break;
-                }
-                case '|':
-                {
-                    cout << x << "|" << y << "=" << or1(x, y);
-                    break;
-                }
-                case '<':
-                {
-                    if (y >= 0)
-                        cout << x << "<" << y << "=" << rol(x, y);
-                    else
+                    case '+':
+                    {
+                        cout << x << "+" << y << "=" << add(x, y);
+                        break;
+                    }
+                    case '-':
+                    {
+                        cout << x << "-" << y << "=" << sub(x, y);
+                        break;
+                    }
+                    case '*':
+                    {
+                        cout << x << "*" << y << "=" << mul(x, y);
+                        break;
+                    }
+                    case '/':
+                    {
+                        if (y == 0)
+                            cerr << "err: you can't divide by zero";
+                        else
+                            cout << x << "/" << y << "=" << div1(x, y);
+                        break;
+                    }
+                    case '&':
+                    {
+                        cout << x << "&" << y << "=" << and1(x, y);
+                        break;
+                    }
+                    case '^':
+                    {
+                        cout << x << "^" << y << "=" << pow1(x, y);
+                        break;
+                    }
+                    case '|':
+                    {
+                        cout << x << "|" << y << "=" << or1(x, y);
+                        break;
+                    }
+                    case '<':
+                    {
+                        if (y >= 0)
+                            cout << x << "<" << y << "=" << rol(x, y);
+                        else
+                            cerr << "err";
+                        break;
+                    }
+                    case '>':
+                    {
+                        if (y >= 0)
+                            cout << x << ">" << y << "=" << ror(x, y);
+                        else
+                            cerr << "err";
+                        break;
+                    }
+                    case '!':
+                    {
+                        cout << x << "!\t=" << not1(x);
+                        break;
+                    }
+                    case '%':
+                    {
+                        int m;
+                        cout << "enter the module";
+                        cin >> m;
+                        cout << x << "-%" << y << "=" << mod(x, y, m);
+                        break;
+                    }
+                    default:
                         cerr << "err";
-                    break;
                 }
-                case '>':
-                {
-                    if (y >= 0)
-                        cout << x << ">" << y << "=" << ror(x, y);
-                    else
-                        cerr << "err";
-                    break;
-                }
-                case '!':
-                {
-                    cout << x << "!\t=" << not1(x);
-                    break;
-                }
-                case '%':
-                {
-                    int m;
-                    cout << "enter the module";
-                    cin >> m;
-                    cout << x << "-%" << y << "=" << mod(x, y, m);
-                    break;
-                }
-                default:
-                    cerr << "err";
             }
+            else
+                cerr << "err";
         }
         else
             cerr << "err";
     }
+
     return 0;
 }
