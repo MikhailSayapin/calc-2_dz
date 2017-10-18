@@ -19,7 +19,7 @@ int mul(int x, int y)
     return (x * y);
 }
 
-double div1(int x, int y)
+double div1(double x, double y)
 {
     return (x / y);
 }
